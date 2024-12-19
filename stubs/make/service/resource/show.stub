@@ -1,0 +1,57 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\Resource\ShowService as BaseService;
+
+use {{ RequestEntityClassName }} as Entity;
+
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+use App\Facades\Repository;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\View\View|\Illuminate\Http\RedirectResponse handle(\{{ RequestEntityClassName }} $entity)
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected string $name = "{{ Name }}";
+
+    /**
+     * entity instance
+     *
+     * @var \{{ RequestEntityClassName }}
+     */
+    protected Entity $entity;
+
+    /**
+     * construct
+     *
+     * @param \{{ RequestEntityClassName }} $entity
+     * @return void
+     */
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
+    /**
+     * execute service
+     *
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function execute(): View|RedirectResponse
+    {
+        ${{ VariableName }} = Repository::{{ RepositoryFacadeMethod }}()->findById($this->entity->id);
+
+        return $this->view(compact("{{ VariableName }}"));
+    }
+}

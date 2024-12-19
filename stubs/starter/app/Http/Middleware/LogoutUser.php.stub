@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use YukataRm\Laravel\Auth\Middleware\LogoutUser as BaseMiddleware;
+
+/**
+ * Logout User Middleware
+ */
+class LogoutUser extends BaseMiddleware
+{
+    /**
+     * route
+     *
+     * @var string
+     */
+    protected string $route = "auth.login.form";
+
+    /**
+     * whether user should be logged out
+     *
+     * @return bool
+     */
+    protected function shouldLogout(): bool
+    {
+        return !$this->guardUser()->is_active;
+    }
+}

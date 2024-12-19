@@ -1,0 +1,2 @@
+<x-yukata-rm::email.template :title="__('')">
+</x-yukata-rm::email.template>
