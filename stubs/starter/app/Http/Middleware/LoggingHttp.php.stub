@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use YukataRm\Laravel\Http\Middleware\LoggingHttp as BaseMiddleware;
+
+/**
+ * Logging HTTP Middleware
+ */
+class LoggingHttp extends BaseMiddleware
+{
+    /**
+     * ignore regex
+     *
+     * @return array<string>
+     */
+    protected function ignores(): array
+    {
+        return [
+            "/^_debugbar/",
+            "/^api/",
+        ];
+    }
+
+    /**
+     * remove parameters
+     *
+     * @return array<string>
+     */
+    protected function removeParameters(): array
+    {
+        return [
+            "_token",
+            "_method",
+        ];
+    }
+
+    /**
+     * masking parameters
+     *
+     * @return array<string>
+     */
+    protected function maskingParameters(): array
+    {
+        return [
+            "password",
+            "password_confirmation",
+            "current_password",
+            "new_password",
+            "new_password_confirmation",
+            "token",
+        ];
+    }
+
+    /**
+     * masking text
+     *
+     * @return string
+     */
+    protected function maskingText(): string
+    {
+        return "********";
+    }
+}

@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use YukataRm\Laravel\Auth\Middleware\Firewall as BaseMiddleware;
+
+/**
+ * Firewall Middleware
+ */
+class Firewall extends BaseMiddleware
+{
+    /**
+     * whether through firewall
+     *
+     * @return bool
+     */
+    protected function throughFirewall(): bool
+    {
+        return app()->isLocal();
+    }
+
+    /**
+     * get allowed ip addresses
+     *
+     * @return array<string>
+     */
+    protected function allowedIps(): array
+    {
+        return [];
+    }
+}

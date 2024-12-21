@@ -1,0 +1,54 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\CustomService;
+
+use {{ RequestEntityClassName }} as Entity;
+
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\View\View|Illuminate\Http\RedirectResponse handle(\{{ RequestEntityClassName }} $entity)
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /*----------------------------------------*
+     * Constructor
+     *----------------------------------------*/
+
+    /**
+     * form entity
+     *
+     * @var \{{ RequestEntityClassName }}
+     */
+    protected Entity $entity;
+
+    /**
+     * construct
+     *
+     * @param \{{ RequestEntityClassName }} $entity
+     * @return void
+     */
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
+    /*----------------------------------------*
+     * Method
+     *----------------------------------------*/
+
+    /**
+     * execute service
+     *
+     * @return \Illuminate\View\View|Illuminate\Http\RedirectResponse
+     */
+    public function execute(): View|RedirectResponse
+    {
+        // ...
+    }
+}

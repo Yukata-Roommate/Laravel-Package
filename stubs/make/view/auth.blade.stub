@@ -1,0 +1,4 @@
+<x-yukata-rm::layout.auth :card-title="__('')" :action="route('')">
+    <x-slot name="footer">
+    </x-slot>
+</x-yukata-rm::layout.auth>

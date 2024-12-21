@@ -1,0 +1,24 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Repository\BaseRepository;
+
+use YukataRm\Laravel\Interface\Repository\ModelInterface;
+use {{ ModelClassName }} as Model;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Repository extends BaseRepository
+{
+    /**
+     * get Model
+     *
+     * @return \YukataRm\Laravel\Interface\Repository\ModelInterface
+     */
+    protected function model(): ModelInterface
+    {
+        return new Model();
+    }
+}

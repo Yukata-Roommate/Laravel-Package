@@ -1,0 +1,33 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\BaseRequest;
+use YukataRm\Laravel\Facade\Rules;
+
+use {{ RequestEntityClassName }} as Entity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Request extends BaseRequest
+{
+    /**
+     * entity class
+     *
+     * @var string
+     */
+    protected string $entity = Entity::class;
+
+    /**
+     * get Validation Rules array
+     *
+     * @return array<\YukataRm\Laravel\Interface\Validation\RulesInterface>
+     */
+    protected function validations(): array
+    {
+        return [
+            // ...
+        ];
+    }
+}
