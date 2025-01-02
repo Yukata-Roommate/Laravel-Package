@@ -1,0 +1,73 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Repository\CustomRepository as BaseRepository;
+
+use YukataRm\Laravel\Interface\Repository\ModelInterface;
+use {{ ModelClassName }} as Model;
+use {{ RepositoryEntityClassName }} as Entity;
+
+use Illuminate\Support\Collection;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Repository extends BaseRepository
+{
+    /**
+     * get Model
+     *
+     * @return \YukataRm\Laravel\Interface\Repository\ModelInterface
+     */
+    protected function model(): ModelInterface
+    {
+        return new Model();
+    }
+
+    /*----------------------------------------*
+     * Common
+     *----------------------------------------*/
+
+    /**
+     * common query
+     *
+     * @return static
+     */
+    protected function commonQuery(): static
+    {
+        return $this;
+    }
+
+    /**
+     * get all
+     *
+     * @return \Illuminate\Support\Collection<\{{ RepositoryEntityClassName }}>
+     */
+    public function all(): Collection
+    {
+        return $this->allRecords();
+    }
+
+    /**
+     * find raw by id
+     *
+     * @param int $id
+     * @return \{{ ModelClassName }}|null
+     */
+    public function findRawById(int $id): Model|null
+    {
+        return $this->findRecordRawByPrimaryKey($id);
+    }
+
+    /**
+     * find by id
+     *
+     * @param int $id
+     * @return \{{ RepositoryEntityClassName }}|null
+     */
+    public function findById(int $id): Entity|null
+    {
+        return $this->findRecordByPrimaryKey($id);
+    }
+}

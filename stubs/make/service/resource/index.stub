@@ -1,0 +1,66 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\Resource\IndexService as BaseService;
+
+use {{ RequestEntityClassName }} as Entity;
+
+use Illuminate\View\View;
+
+use App\Facades\Repository;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\View\View handle(\{{ RequestEntityClassName }} $entity)
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected string $name = "{{ Name }}";
+
+    /**
+     * entity instance
+     *
+     * @var \{{ RequestEntityClassName }}
+     */
+    protected Entity $entity;
+
+    /**
+     * construct
+     *
+     * @param \{{ RequestEntityClassName }} $entity
+     * @return void
+     */
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
+    /**
+     * execute service
+     *
+     * @return \Illuminate\View\View
+     */
+    public function execute(): View
+    {
+        $collection = Repository::{{ RepositoryFacadeMethod }}()->search(
+            $this->entity->data(),
+            $this->entity->pageItemLimit(),
+            $this->entity->offset()
+        );
+
+        $count = Repository::{{ RepositoryFacadeMethod }}()->searchCount(
+            $this->entity->data()
+        );
+
+        ${{ VariableName }}s = $this->paginator($collection, $count, $this->entity->pageItemLimit());
+
+        return $this->view(compact("{{ VariableName }}s"));
+    }
+}

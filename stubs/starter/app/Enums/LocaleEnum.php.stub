@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Enums;
+
+use YukataRm\Trait\Enum\Extension;
+
+/**
+ * Locale Enum
+ */
+enum LocaleEnum: string
+{
+    use Extension;
+
+    case EN = "en";
+    case JA = "ja";
+
+    /**
+     * get label
+     *
+     * @return string
+     */
+    public function label(): string
+    {
+        return match ($this) {
+            self::EN => __("item.locales.en"),
+            self::JA => __("item.locales.ja"),
+        };
+    }
+
+    /**
+     * get full locale
+     *
+     * @return string
+     */
+    public function fullLocale(): string
+    {
+        return match ($this) {
+            self::EN => "en_US",
+            self::JA => "ja_JP",
+        };
+    }
+}

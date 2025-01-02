@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\CustomService;
+
+use Illuminate\Http\RedirectResponse;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\Http\RedirectResponse handle()
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /*----------------------------------------*
+     * Method
+     *----------------------------------------*/
+
+    /**
+     * execute service
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function execute(): RedirectResponse
+    {
+        // ...
+    }
+}

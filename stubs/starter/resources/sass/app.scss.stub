@@ -1,0 +1,5 @@
+/*----------------------------------------*
+ * Yukata Roommate
+ *----------------------------------------*/
+
+@import "../../vendor/yukata-roommate/laravel-package/resources/sass/app";
