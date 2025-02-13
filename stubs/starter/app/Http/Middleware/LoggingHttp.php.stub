@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use YukataRm\Laravel\Http\Middleware\LoggingHttp as BaseMiddleware;
+
+/**
+ * Logging HTTP Middleware
+ */
+class LoggingHttp extends BaseMiddleware {}

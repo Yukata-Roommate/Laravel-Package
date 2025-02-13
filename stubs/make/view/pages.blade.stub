@@ -1,0 +1,18 @@
+<x-yukata-rm::layout.pages :page-title="__('')">
+    <x-slot name="header">
+    </x-slot>
+
+    <x-slot name="sidebar">
+    </x-slot>
+
+    <x-slot name="breadcrumb">
+    </x-slot>
+
+    {{ $slot }}
+
+    <x-slot name="footer">
+    </x-slot>
+
+    <x-slot name="modal">
+    </x-slot>
+</x-yukata-rm::layout.pages>

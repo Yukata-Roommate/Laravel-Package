@@ -1,0 +1,7 @@
+<?php
+
+$vendor = require __DIR__  . "/../../vendor/yukata-roommate/laravel-package/langs/en/button.php";
+
+$lang = [];
+
+return array_merge($vendor, $lang);

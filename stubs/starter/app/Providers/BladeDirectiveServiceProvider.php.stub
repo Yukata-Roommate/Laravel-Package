@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Providers;
+
+use YukataRm\Laravel\Provider\BladeDirectiveServiceProvider as ServiceProvider;
+
+use App\Enums\UserAbilityEnum;
+
+/**
+ * Blade Directive Service Provider
+ */
+class BladeDirectiveServiceProvider extends ServiceProvider
+{
+    /*----------------------------------------*
+     * If
+     *----------------------------------------*/
+
+    /**
+     * get if directives
+     *
+     * @return array<string, \Closure>
+     */
+    #[\Override]
+    protected function ifDirectives(): array
+    {
+        return [
+            "onlySystem"       => $this->onlySystemDirective(),
+            "superAdminHigher" => $this->superAdminHigherDirective(),
+            "adminHigher"      => $this->adminHigherDirective(),
+            "superUserHigher"  => $this->superUserHigherDirective(),
+            "userHigher"       => $this->userHigherDirective(),
+        ];
+    }
+
+    /**
+     * get onlySystem directive
+     *
+     * @return \Closure
+     */
+    protected function onlySystemDirective(): \Closure
+    {
+        return function (): bool {
+            return \Auth::user()->can(UserAbilityEnum::ONLY_SYSTEM->value);
+        };
+    }
+
+    /**
+     * get superAdminHigher directive
+     *
+     * @return \Closure
+     */
+    protected function superAdminHigherDirective(): \Closure
+    {
+        return function (): bool {
+            return \Auth::user()->can(UserAbilityEnum::SUPER_ADMIN_HIGHER->value);
+        };
+    }
+
+    /**
+     * get adminHigher directive
+     *
+     * @return \Closure
+     */
+    protected function adminHigherDirective(): \Closure
+    {
+        return function (): bool {
+            return \Auth::user()->can(UserAbilityEnum::ADMIN_HIGHER->value);
+        };
+    }
+
+    /**
+     * get superUserHigher directive
+     *
+     * @return \Closure
+     */
+    protected function superUserHigherDirective(): \Closure
+    {
+        return function (): bool {
+            return \Auth::user()->can(UserAbilityEnum::SUPER_USER_HIGHER->value);
+        };
+    }
+
+    /**
+     * get userHigher directive
+     *
+     * @return \Closure
+     */
+    protected function userHigherDirective(): \Closure
+    {
+        return function (): bool {
+            return \Auth::user()->can(UserAbilityEnum::USER_HIGHER->value);
+        };
+    }
+}

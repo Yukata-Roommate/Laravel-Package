@@ -1,0 +1,32 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\Resource\CreateService as BaseService;
+
+use Illuminate\View\View;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\View\View handle()
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected string $name = "{{ Name }}";
+
+    /**
+     * execute service
+     *
+     * @return \Illuminate\View\View
+     */
+    public function execute(): View
+    {
+        return $this->view();
+    }
+}

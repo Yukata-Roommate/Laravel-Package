@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Providers;
+
+use YukataRm\Laravel\Provider\SingletonServiceProvider as ServiceProvider;
+
+use App\Http\Middleware\LoggingHttp;
+
+/**
+ * Singleton Service Provider
+ */
+class SingletonServiceProvider extends ServiceProvider
+{
+    /**
+     * get singleton classes
+     *
+     * @return array<string>
+     */
+    protected function singletons(): array
+    {
+        return [
+            LoggingHttp::class,
+        ];
+    }
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Http\Requests\User\Entities;
+
+use YukataRm\Laravel\Request\Entity\Resource\EditEntity as BaseEntity;
+
+/**
+ * User Edit Request Entity
+ */
+class EditEntity extends BaseEntity {}
