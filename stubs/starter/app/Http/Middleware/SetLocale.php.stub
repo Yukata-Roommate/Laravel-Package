@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use YukataRm\Laravel\Http\Middleware\SetLocale as BaseMiddleware;
+
+use App\Enums\LocaleEnum;
+
+/**
+ * Set Locale Middleware
+ */
+class SetLocale extends BaseMiddleware
+{
+    /**
+     * get locale
+     *
+     * @return string
+     */
+    protected function getLocale(): string
+    {
+        return \Auth::user()->locale ?? config("app.locale");
+    }
+
+    /**
+     * get accept locales
+     *
+     * @return array<string>
+     */
+    protected function acceptLocales(): array
+    {
+        return LocaleEnum::values();
+    }
+}

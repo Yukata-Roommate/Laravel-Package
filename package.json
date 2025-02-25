@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "type": "module",
+    "devDependencies": {
+        "@fontsource/source-sans-3": "^5.1.1",
+        "@types/bootstrap": "^5.2.10",
+        "@types/crypto-js": "^4.2.2",
+        "admin-lte": "^4.0.0-beta3",
+        "autoprefixer": "^10.4.20",
+        "axios": "^1.7.9",
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
+        "concurrently": "^9.1.2",
+        "laravel-vite-plugin": "^1.2",
+        "prismjs": "^1.29.0",
+        "sass": "^1.83.4",
+        "ts-loader": "^9.5.2",
+        "typescript": "^5.7.3",
+        "vite": "^6.0",
+        "vite-plugin-checker": "^0.8.0"
+    }
+}

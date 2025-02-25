@@ -1,0 +1,71 @@
+{
+    "name": "yukata-roommate/laravel-package",
+    "description": "Laravel Package by Yukata Roommate",
+    "version": "1.0.0",
+    "keywords": [
+        "yukata-roommate",
+        "php",
+        "laravel",
+        "package"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yukata Roommate"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "YukataRm\\Laravel\\": "src/app",
+            "YukataRm\\Laravel\\Interface\\": "src/interface",
+            "YukataRm\\Laravel\\Trait\\": "src/trait",
+            "YukataRm\\Laravel\\Package\\": "src/package"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "YukataRm\\Laravel\\Package\\Provider\\ArtisanCommandServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\BladeDirectiveServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\ConfigServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\FacadeServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\LangServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\LoggingServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\MacroServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\MigrationServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\RouteServiceProvider",
+                "YukataRm\\Laravel\\Package\\Provider\\ViewServiceProvider"
+            ],
+            "aliases": {
+                "Db": "YukataRm\\Laravel\\Facade\\Db",
+                "Http": "YukataRm\\Laravel\\Facade\\Http",
+                "Log": "YukataRm\\Laravel\\Facade\\Log",
+                "Renderer": "YukataRm\\Laravel\\Facade\\Renderer",
+                "Rules": "YukataRm\\Laravel\\Facade\\Rules",
+
+                "Cli": "YukataRm\\Proxy\\Cli",
+                "Crypt": "YukataRm\\Proxy\\Crypt",
+                "Entity": "YukataRm\\Proxy\\Entity",
+                "PHPLog": "YukataRm\\Proxy\\Log",
+                "Math": "YukataRm\\Proxy\\Math",
+                "Random": "YukataRm\\Proxy\\Random",
+                "Text": "YukataRm\\Proxy\\Text",
+                "Time": "YukataRm\\Proxy\\Time",
+                "Dumper": "YukataRm\\Proxy\\Db\\Dumper",
+                "Operator": "YukataRm\\Proxy\\File\\Operator",
+                "PathInfo": "YukataRm\\Proxy\\File\\PathInfo",
+                "Reader": "YukataRm\\Proxy\\File\\Reader",
+                "Writer": "YukataRm\\Proxy\\File\\Writer",
+                "CsvReader": "YukataRm\\Proxy\\File\\Csv\\Reader",
+                "CsvWriter": "YukataRm\\Proxy\\File\\Csv\\Writer",
+                "MarkdownWriter": "YukataRm\\Proxy\\File\\Markdown\\Writer",
+                "Twilio": "YukataRm\\Proxy\\Sms\\Twilio"
+            }
+        }
+    },
+    "require": {
+        "php": ">=8.3.0",
+        "laravel/framework": "^11.0 || ^12.0",
+        "yukata-roommate/package": "^1.0.0"
+    }
+}

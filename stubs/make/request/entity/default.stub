@@ -1,0 +1,21 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\Entity\BaseEntity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}RequestEntity extends BaseEntity
+{
+    /**
+     * bind property
+     *
+     * @return void
+     */
+    public function bind(): void
+    {
+        // ...
+    }
+}

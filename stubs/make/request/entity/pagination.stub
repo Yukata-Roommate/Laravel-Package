@@ -1,0 +1,21 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\Entity\PaginationEntity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}RequestEntity extends PaginationEntity
+{
+    /**
+     * bind property
+     *
+     * @return void
+     */
+    public function bind(): void
+    {
+        // ...
+    }
+}

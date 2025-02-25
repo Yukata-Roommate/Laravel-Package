@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Providers;
+
+use YukataRm\Laravel\Provider\GateServiceProvider as ServiceProvider;
+
+use App\Models\User;
+use App\Enums\UserAbilityEnum;
+
+/**
+ * Gate Service Provider
+ */
+class GateServiceProvider extends ServiceProvider
+{
+    /**
+     * define Gate
+     *
+     * @return void
+     */
+    protected function define(): void
+    {
+        $this->before(function (User $user, string $ability) {
+            if ($user->role->isSystem()) return true;
+        });
+
+        $this->gate(UserAbilityEnum::SUPER_ADMIN_HIGHER->value, function (User $user) {
+            return UserAbilityEnum::SUPER_ADMIN_HIGHER->check($user->role);
+        });
+
+        $this->gate(UserAbilityEnum::ADMIN_HIGHER->value, function (User $user) {
+            return UserAbilityEnum::ADMIN_HIGHER->check($user->role);
+        });
+
+        $this->gate(UserAbilityEnum::SUPER_USER_HIGHER->value, function (User $user) {
+            return UserAbilityEnum::SUPER_USER_HIGHER->check($user->role);
+        });
+
+        $this->gate(UserAbilityEnum::USER_HIGHER->value, function (User $user) {
+            return UserAbilityEnum::USER_HIGHER->check($user->role);
+        });
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\Entity\Resource\IndexEntity as BaseEntity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Entity extends BaseEntity
+{
+    /**
+     * bind property
+     *
+     * @return void
+     */
+    public function bind(): void
+    {
+        // ...
+    }
+}

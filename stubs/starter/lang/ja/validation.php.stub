@@ -1,0 +1,7 @@
+<?php
+
+$lang = require __DIR__  . "/../../vendor/yukata-roommate/laravel-package/langs/ja/validation.php";
+
+$lang["attributes"] = array_merge($lang["attributes"], []);
+
+return $lang;
