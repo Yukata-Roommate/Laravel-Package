@@ -1,0 +1,103 @@
+<?php
+
+namespace App\Enums;
+
+use YukataRm\Trait\Enum\Extension;
+
+use App\Enums\UserRoleEnum;
+
+/**
+ * User Ability Enum
+ */
+enum UserAbilityEnum: string
+{
+    use Extension;
+
+    case ONLY_SYSTEM        = "only_system";
+    case SUPER_ADMIN_HIGHER = "super_admin_higher";
+    case ADMIN_HIGHER       = "admin_higher";
+    case SUPER_USER_HIGHER  = "super_user_higher";
+    case USER_HIGHER        = "user_higher";
+
+    /**
+     * get middleware
+     *
+     * @return string
+     */
+    public function middleware(): string
+    {
+        return "can:{$this->value}";
+    }
+
+    /**
+     * whether is role higher
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function check(UserRoleEnum $role): bool
+    {
+        return match ($this) {
+            self::ONLY_SYSTEM        => $this->isSystem($role),
+            self::SUPER_ADMIN_HIGHER => $this->isSuperAdminHigher($role),
+            self::ADMIN_HIGHER       => $this->isAdminHigher($role),
+            self::SUPER_USER_HIGHER  => $this->isSuperUserHigher($role),
+            self::USER_HIGHER        => $this->isUserHigher($role),
+        };
+    }
+
+    /**
+     * whether is system
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function isSystem(UserRoleEnum $role): bool
+    {
+        return $role->isSystem();
+    }
+
+    /**
+     * whether is super admin higher
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function isSuperAdminHigher(UserRoleEnum $role): bool
+    {
+        return $role->number() < UserRoleEnum::SUPER_ADMIN->number();
+    }
+
+    /**
+     * whether is admin higher
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function isAdminHigher(UserRoleEnum $role): bool
+    {
+        return $role->number() < UserRoleEnum::ADMIN->number();
+    }
+
+    /**
+     * whether is super user higher
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function isSuperUserHigher(UserRoleEnum $role): bool
+    {
+        return $role->number() < UserRoleEnum::SUPER_USER->number();
+    }
+
+    /**
+     * whether is user higher
+     *
+     * @param \App\Enums\UserRoleEnum $role
+     * @return bool
+     */
+    public function isUserHigher(UserRoleEnum $role): bool
+    {
+        return $role->number() < UserRoleEnum::USER->number();
+    }
+}

@@ -1,0 +1,90 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\Resource\StoreService as BaseService;
+
+use {{ RequestEntityClassName }} as Entity;
+use {{ ModelClassName }} as Model;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\Http\RedirectResponse handle(\{{ RequestEntityClassName }} $entity)
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected string $name = "{{ Name }}";
+
+    /**
+     * entity instance
+     *
+     * @var \{{ RequestEntityClassName }}
+     */
+    protected Entity $entity;
+
+    /**
+     * model instance
+     *
+     * @var \{{ ModelClassName }}
+     */
+    protected Model $model;
+
+    /**
+     * construct
+     *
+     * @param \{{ RequestEntityClassName }} $entity
+     * @return void
+     */
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
+    /**
+     * store
+     *
+     * @return bool
+     */
+    protected function store(): bool
+    {
+        ${{ VariableName }} = new Model();
+
+        // ...
+
+        $result = $this->runTransaction(function () use (${{ VariableName }}) {
+            ${{ VariableName }}->save();
+        });
+
+        $this->model = ${{ VariableName }};
+
+        return $result;
+    }
+
+    /**
+     * store success response params
+     *
+     * @return array<string, mixed>
+     */
+    protected function successParams(): array
+    {
+        return [
+            "id" => $this->model->id
+        ];
+    }
+
+    /**
+     * store failure response input
+     *
+     * @return array<string, mixed>
+     */
+    protected function failureInput(): array
+    {
+        return $this->entity->data();
+    }
+}

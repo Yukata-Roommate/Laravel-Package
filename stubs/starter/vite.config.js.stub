@@ -1,0 +1,28 @@
+import { defineConfig } from "vite";
+import checker from "vite-plugin-checker";
+import laravel from "laravel-vite-plugin";
+import path from "path";
+
+export default defineConfig({
+    plugins: [
+        checker({
+            typescript: true,
+        }),
+        laravel({
+            input: ["resources/sass/app.scss", "resources/ts/app.ts"],
+            refresh: true,
+        }),
+    ],
+    resolve: {
+        alias: {
+            "~yukata-rm": path.resolve(__dirname, "vendor/yukata-roommate/laravel-package/resources"),
+            "@modules": path.resolve(__dirname, "vendor/yukata-roommate/laravel-package/resources/ts/app/package/modules"),
+
+            "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
+            "~admin-lte": path.resolve(__dirname, "node_modules/admin-lte"),
+            "~@fontsource": path.resolve(__dirname, "node_modules/@fontsource"),
+            "~bootstrap-icons": path.resolve(__dirname, "node_modules/bootstrap-icons"),
+            "~prismjs": path.resolve(__dirname, "node_modules/prismjs"),
+        },
+    }
+});

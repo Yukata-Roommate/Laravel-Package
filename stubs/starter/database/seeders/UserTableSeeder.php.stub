@@ -1,0 +1,37 @@
+<?php
+
+namespace Database\Seeders;
+
+use YukataRm\Laravel\Db\Seeder\SingleDataSeeder;
+
+use App\Models\User;
+
+use App\Enums\UserRoleEnum;
+
+/**
+ * User Table Seeder
+ */
+class UserTableSeeder extends SingleDataSeeder
+{
+    /**
+     * model class
+     *
+     * @var string
+     */
+    protected string $modelClass = User::class;
+
+    /**
+     * data
+     *
+     * @return array<string, mixed>
+     */
+    protected function data(): array
+    {
+        return [
+            "name"     => config("package.user.name", "User"),
+            "email"    => config("package.user.email", "test@example.com"),
+            "password" => $this->hash(config("package.user.password", "password")),
+            "role"     => UserRoleEnum::SYSTEM,
+        ];
+    }
+}

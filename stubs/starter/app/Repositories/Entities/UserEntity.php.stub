@@ -1,0 +1,89 @@
+<?php
+
+namespace App\Repositories\Entities;
+
+use YukataRm\Laravel\Repository\Entity\BaseEntity;
+
+use YukataRm\Laravel\Interface\Repository\EntityInterface;
+
+use App\Enums\UserRoleEnum;
+use Carbon\Carbon;
+
+/**
+ * User Entity
+ */
+class UserEntity extends BaseEntity implements EntityInterface
+{
+    /**
+     * id
+     *
+     * @var int
+     */
+    public int $id;
+
+    /**
+     * name
+     *
+     * @var string
+     */
+    public string $name;
+
+    /**
+     * email
+     *
+     * @var string
+     */
+    public string $email;
+
+    /**
+     * role
+     *
+     * @var \App\Enums\UserRoleEnum
+     */
+    public UserRoleEnum $role;
+
+    /**
+     * locale
+     *
+     * @var string
+     */
+    public string $locale;
+
+    /**
+     * is_active
+     *
+     * @var bool
+     */
+    public bool $isActive;
+
+    /**
+     * created_at
+     *
+     * @var \Carbon\Carbon
+     */
+    public Carbon $createdAt;
+
+    /**
+     * updated_at
+     *
+     * @var \Carbon\Carbon
+     */
+    public Carbon $updatedAt;
+
+    /**
+     * bind Model properties
+     *
+     * @return void
+     */
+    protected function bind(): void
+    {
+        $this->id        = $this->int("id");
+        $this->name      = $this->string("name");
+        $this->email     = $this->string("email");
+        $this->role      = $this->enum("role", UserRoleEnum::class);
+        $this->locale    = $this->string("locale");
+        $this->isActive  = $this->bool("is_active");
+        $this->createdAt = $this->timestamp("created_at");
+        $this->updatedAt = $this->timestamp("updated_at");
+    }
+}

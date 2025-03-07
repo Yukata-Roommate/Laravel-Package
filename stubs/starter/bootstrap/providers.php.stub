@@ -1,0 +1,10 @@
+<?php
+
+return [
+    App\Providers\AppServiceProvider::class,
+    App\Providers\AliasServiceProvider::class,
+    App\Providers\BladeDirectiveServiceProvider::class,
+    App\Providers\FacadeServiceProvider::class,
+    App\Providers\GateServiceProvider::class,
+    App\Providers\SingletonServiceProvider::class,
+];

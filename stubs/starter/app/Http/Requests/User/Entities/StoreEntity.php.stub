@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Requests\User\Entities;
+
+use YukataRm\Laravel\Request\Entity\Resource\StoreEntity as BaseEntity;
+
+use App\Enums\UserRoleEnum;
+
+/**
+ * User Store Request Entity
+ */
+class StoreEntity extends BaseEntity
+{
+    /**
+     * role
+     *
+     * @var \App\Enums\UserRoleEnum
+     */
+    public UserRoleEnum $role;
+
+    /**
+     * name
+     *
+     * @var string
+     */
+    public string $name;
+
+    /**
+     * email
+     *
+     * @var string
+     */
+    public string $email;
+
+    /**
+     * password
+     *
+     * @var string
+     */
+    public string $password;
+
+    /**
+     * bind property
+     *
+     * @return void
+     */
+    public function bind(): void
+    {
+        $this->role     = $this->enum("role", UserRoleEnum::class);
+        $this->name     = $this->string("name");
+        $this->email    = $this->string("email");
+        $this->password = $this->string("password");
+    }
+}

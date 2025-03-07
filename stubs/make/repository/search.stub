@@ -1,0 +1,116 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Repository\SearchRepository as BaseRepository;
+
+use YukataRm\Laravel\Interface\Repository\ModelInterface;
+use {{ ModelClassName }} as Model;
+use {{ RepositoryEntityClassName }} as Entity;
+
+use Illuminate\Support\Collection;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Repository extends BaseRepository
+{
+    /**
+     * get Model
+     *
+     * @return \YukataRm\Laravel\Interface\Repository\ModelInterface
+     */
+    protected function model(): ModelInterface
+    {
+        return new Model();
+    }
+
+    /*----------------------------------------*
+     * Common
+     *----------------------------------------*/
+
+    /**
+     * common query
+     *
+     * @return static
+     */
+    protected function commonQuery(): static
+    {
+        return $this;
+    }
+
+    /**
+     * get all
+     *
+     * @return \Illuminate\Support\Collection<\{{ RepositoryEntityClassName }}>
+     */
+    public function all(): Collection
+    {
+        return $this->allRecords();
+    }
+
+    /**
+     * find raw by id
+     *
+     * @param int $id
+     * @return \{{ ModelClassName }}|null
+     */
+    public function findRawById(int $id): Model|null
+    {
+        return $this->findRecordRawByPrimaryKey($id);
+    }
+
+    /**
+     * find by id
+     *
+     * @param int $id
+     * @return \{{ RepositoryEntityClassName }}|null
+     */
+    public function findById(int $id): Entity|null
+    {
+        return $this->findRecordByPrimaryKey($id);
+    }
+
+    /*----------------------------------------*
+     * Search
+     *----------------------------------------*/
+
+    /**
+     * search query
+     *
+     * @param array<string, mixed> $search
+     * @return static
+     */
+    protected function searchQuery(array $search): static
+    {
+        $query = $this->commonQuery();
+
+        return $query;
+    }
+
+    /**
+     * search raw
+     *
+     * @param array<string, mixed> $search
+     * @param int|null $limit
+     * @param int|null $offset
+     * @return \Illuminate\Support\Collection<\{{ ModelClassName }}>
+     */
+    public function searchRaw(array $search, int|null $limit = null, int|null $offset = null): Collection
+    {
+        return $this->searchRawRecords($search, $limit, $offset);
+    }
+
+    /**
+     * search
+     *
+     * @param array<string, mixed> $search
+     * @param int|null $limit
+     * @param int|null $offset
+     * @return \Illuminate\Support\Collection<\{{ RepositoryEntityClassName }}>
+     */
+    public function search(array $search, int|null $limit = null, int|null $offset = null): Collection
+    {
+        return $this->searchRecords($search, $limit, $offset);
+    }
+}

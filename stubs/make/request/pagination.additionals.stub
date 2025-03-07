@@ -1,0 +1,40 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\PaginationRequest;
+use YukataRm\Laravel\Facade\Rules;
+
+use {{ RequestEntityClassName }} as Entity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Request extends PaginationRequest
+{
+    /**
+     * entity class
+     *
+     * @var string
+     */
+    protected string $entity = Entity::class;
+
+    /**
+     * additional data
+     *
+     * @var array<string>
+     */
+    protected array $additionalData = [{{ AdditionalData }}];
+
+    /**
+     * get Validation Rules array
+     *
+     * @return array<\YukataRm\Laravel\Interface\Validation\RulesInterface>
+     */
+    protected function validations(): array
+    {
+        return [
+            // ...
+        ];
+    }
+}

@@ -1,0 +1,27 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\Resource\EditRequest as BaseRequest;
+
+use {{ RequestEntityClassName }} as Entity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Request extends BaseRequest
+{
+    /**
+     * table name
+     *
+     * @var string
+     */
+    protected string $tableName = "{{ TableName }}";
+
+    /**
+     * entity class
+     *
+     * @var string
+     */
+    protected string $entity = Entity::class;
+}

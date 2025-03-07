@@ -1,0 +1,17 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use {{ ServiceNamespace }} as Service;
+use {{ RequestNamespace }} as Request;
+
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Controller
+{
+    // ...
+}

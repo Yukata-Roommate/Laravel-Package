@@ -1,0 +1,26 @@
+<x-pages :page-title="__('title.page.{{ Name }}.show')">
+    <x-slot name="breadcrumb">
+        <x-breadcrumb.home />
+
+        <x-breadcrumb.{{ Name }} />
+
+        <x-yukata-rm::breadcrumb.active :title="__('title.breadcrumb.{{ Name }}.show')" />
+    </x-slot>
+
+    <x-yukata-rm::card>
+
+        <x-slot name="footer">
+            <x-yukata-rm::button.group position="right">
+                <x-yukata-rm::button.link color="success" :outline="true" :href="route('{{ Name }}.edit', ${{ VariableName }}->id)">
+                    {{ __('button.edit') }}
+                </x-yukata-rm::button.link>
+
+                <x-yukata-rm::form method="delete" action="{{ route('{{ Name }}.destroy', ${{ VariableName }}->id) }}">
+                    <x-yukata-rm::button color="danger" :outline="true" type="submit" class="ms-2">
+                        {{ __('button.destroy') }}
+                    </x-yukata-rm::button>
+                </x-yukata-rm::form>
+            </x-yukata-rm::button.group>
+        </x-slot>
+    </x-yukata-rm::card>
+</x-pages>

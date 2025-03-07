@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Repository\Entity\RelationEntity;
+
+use YukataRm\Laravel\Interface\Repository\EntityInterface;
+
+use Carbon\Carbon;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Entity extends RelationEntity implements EntityInterface
+{
+    /**
+     * bind Model properties
+     *
+     * @return void
+     */
+    protected function bind(): void
+    {
+        // ...
+    }
+
+    /*----------------------------------------*
+     * Relations
+     *----------------------------------------*/
+}

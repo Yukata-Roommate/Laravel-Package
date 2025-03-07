@@ -1,0 +1,37 @@
+/*****************************************
+ * Package Markdown
+ *
+ * Editor
+ *****************************************/
+
+/*----------------------------------------*
+ * Imports
+ *----------------------------------------*/
+
+@use "../mixin/button" as *;
+
+/*----------------------------------------*
+ * Root
+ *----------------------------------------*/
+
+:root {
+    --met-header-button-color: #0dcaf0;
+    --met-header-button-hover-color: #ffffff;
+}
+
+/*----------------------------------------*
+ * Styles
+ *----------------------------------------*/
+
+.markdown-editor {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        & .header__button {
+            @include button(var(--met-header-button-color), var(--met-header-button-hover-color));
+        }
+    }
+}

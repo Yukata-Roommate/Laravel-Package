@@ -1,0 +1,75 @@
+<?php
+
+namespace Database\Seeders\Dummy;
+
+use YukataRm\Laravel\Db\Seeder\MultipleDataSeeder;
+
+use App\Models\User;
+
+use Illuminate\Support\Collection;
+use App\Enums\UserRoleEnum;
+
+/**
+ * User Table Seeder
+ */
+class UserTableSeeder extends MultipleDataSeeder
+{
+    /**
+     * model class
+     *
+     * @var string
+     */
+    protected string $modelClass = User::class;
+
+    /**
+     * identifiers
+     *
+     * @return array<mixed>
+     */
+    protected function identifiers(): array
+    {
+        return range(1, ($this->roleCount() * 2));
+    }
+
+    /**
+     * data
+     *
+     * @param mixed $identifier
+     * @return array<string, mixed>|\Illuminate\Support\Collection
+     */
+    protected function data(mixed $identifier): Collection
+    {
+        return collect([
+            "name"      => "User {$identifier}",
+            "email"     => "test{$identifier}@example.com",
+            "password"  => $this->hash("password{$identifier}"),
+            "role"      => $this->role($identifier),
+            "is_active" => $identifier <= $this->roleCount(),
+        ]);
+    }
+
+    /**
+     * get role count
+     *
+     * @return int
+     */
+    protected function roleCount(): int
+    {
+        return count(UserRoleEnum::cases()) - 1;
+    }
+
+    /**
+     * get User Role Enum
+     *
+     * @param int $identifier
+     * @return \App\Enums\UserRoleEnum
+     */
+    protected function role(int $identifier): UserRoleEnum
+    {
+        $remainder = $identifier % $this->roleCount();
+
+        $index = $remainder === 0 ? $this->roleCount() : $remainder;
+
+        return UserRoleEnum::cases()[$index];
+    }
+}

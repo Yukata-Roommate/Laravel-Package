@@ -1,0 +1,52 @@
+<x-pages :page-title="__('title.page.{{ Name }}.index')">
+    <x-slot name="breadcrumb">
+        <x-breadcrumb.home />
+
+        <x-yukata-rm::breadcrumb.active :title="__('title.breadcrumb.{{ Name }}.index')" />
+    </x-slot>
+
+    <x-yukata-rm::card.pagination :title="__('title.card.{{ Name }}.index')" :paginator="${{ VariablesName }}">
+        <x-slot name="cardHeader">
+            <x-yukata-rm::button.group position="right">
+                <x-yukata-rm::modal.button.open modal-id="search{{ ModalName }}Modal" :outline="true" :small="true">
+                    {{ __('button.search') }}
+                </x-yukata-rm::modal.button.open>
+            </x-yukata-rm::button.group>
+        </x-slot>
+
+        @if (${{ VariablesName }}->isNotEmpty())
+            <x-slot name="tableHeader">
+                <x-yukata-rm::table.row>
+
+                </x-yukata-rm::table.row>
+            </x-slot>
+
+            <x-slot name="tableBody">
+                @foreach (${{ VariablesName }} as ${{ VariableName }})
+                    <x-yukata-rm::table.row>
+
+                    </x-yukata-rm::table.row>
+                @endforeach
+            </x-slot>
+        @endif
+    </x-yukata-rm::card.pagination>
+
+    <x-slot name="modal">
+        <x-yukata-rm::form method="get" :action="route('{{ Name }}.index')" :csrf="false">
+            <x-yukata-rm::modal modal-id="search{{ ModalName }}Modal" :title="__('title.modal.{{ Name }}.search')" :is-strict="true">
+
+                <x-slot name="footer">
+                    <x-yukata-rm::button.group position="right">
+                        <x-yukata-rm::button color="info" :outline="true" type="submit" class="me-3">
+                            {{ __('button.search') }}
+                        </x-yukata-rm::button>
+
+                        <x-yukata-rm::modal.button.close :outline="true">
+                            {{ __('button.close') }}
+                        </x-yukata-rm::modal.button.close>
+                    </x-yukata-rm::button.group>
+                </x-slot>
+            </x-yukata-rm::modal>
+        </x-yukata-rm::form>
+    </x-slot>
+</x-pages>

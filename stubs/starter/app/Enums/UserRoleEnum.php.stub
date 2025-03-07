@@ -1,0 +1,113 @@
+<?php
+
+namespace App\Enums;
+
+use YukataRm\Trait\Enum\Extension;
+
+/**
+ * User Role Enum
+ */
+enum UserRoleEnum: string
+{
+    use Extension;
+
+    case SYSTEM      = "system";
+    case SUPER_ADMIN = "super_admin";
+    case ADMIN       = "admin";
+    case SUPER_USER  = "super_user";
+    case USER        = "user";
+
+    /**
+     * get number
+     *
+     * @return int
+     */
+    public function number(): int
+    {
+        return match ($this) {
+            self::SYSTEM      => 1,
+            self::SUPER_ADMIN => 10,
+            self::ADMIN       => 100,
+            self::SUPER_USER  => 1000,
+            self::USER        => 10000,
+        };
+    }
+
+    /**
+     * get label
+     *
+     * @return string
+     */
+    public function label(): string
+    {
+        return match ($this) {
+            self::SYSTEM      => __("item.roles.system"),
+            self::SUPER_ADMIN => __("item.roles.super_admin"),
+            self::ADMIN       => __("item.roles.admin"),
+            self::SUPER_USER  => __("item.roles.super_user"),
+            self::USER        => __("item.roles.user"),
+        };
+    }
+
+    /**
+     * get lower than
+     *
+     * @return array<\App\Enums\UserRoleEnum>
+     */
+    public function lowerThan(): array
+    {
+        $cases = self::cases();
+
+        return array_filter($cases, fn(UserRoleEnum $case) => $case->number() > $this->number());
+    }
+
+    /**
+     * whether is system
+     *
+     * @return bool
+     */
+    public function isSystem(): bool
+    {
+        return $this === self::SYSTEM;
+    }
+
+    /**
+     * whether is super admin
+     *
+     * @return bool
+     */
+    public function isSuperAdmin(): bool
+    {
+        return $this === self::SUPER_ADMIN;
+    }
+
+    /**
+     * whether is admin
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return $this === self::ADMIN;
+    }
+
+    /**
+     * whether is super user
+     *
+     * @return bool
+     */
+    public function isSuperUser(): bool
+    {
+        return $this === self::SUPER_USER;
+    }
+
+    /**
+     * whether is user
+     *
+     * @return bool
+     */
+    public function isUser(): bool
+    {
+        return $this === self::USER;
+    }
+}

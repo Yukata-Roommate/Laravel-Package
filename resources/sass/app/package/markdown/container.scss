@@ -1,0 +1,197 @@
+/*****************************************
+ * Package Markdown
+ *
+ * Container
+ *****************************************/
+
+/*----------------------------------------*
+ * Root
+ *----------------------------------------*/
+
+:root {
+    --mc-text-color: #222222;
+    --mc-background-color: #fefefe;
+    --mc-border-color: #f5f5f5;
+    --mc-hr-color: #666666;
+    --mc-heading-border-color: #4169e1;
+    --mc-link-color: #007bff;
+    --mc-link-hover-color: #0056b3;
+    --mc-text-code-color: #333333;
+    --mc-text-code-background-color: #d8d9da;
+    --mc-code-block-color: #d8d9da;
+    --mc-code-block-background-color: #333333;
+    --mc-code-block-copy-button-color: #ffffff;
+    --mc-code-block-copy-button-background-color: #007bff;
+    --mc-code-block-copy-button-success-color: #28a745;
+    --mc-code-block-copy-button-error-color: #dc3545;
+}
+
+/*----------------------------------------*
+ * Styles
+ *----------------------------------------*/
+
+.markdown-container {
+    font-size: 1rem;
+    padding: 1rem;
+    color: var(--mc-text-color);
+    background-color: var(--mc-background-color);
+    border: 1px solid var(--mc-border-color);
+    border-radius: 1rem;
+
+    & .paragraph {
+        margin-bottom: .5rem;
+    }
+
+    & .text {
+        &.text__bold {
+            font-weight: bold;
+        }
+
+        &.text__italic {
+            font-style: italic;
+        }
+
+        &.text__strike {
+            text-decoration: line-through;
+        }
+
+        &.text__link {
+            color: var(--mc-link-color);
+            text-decoration: none;
+
+            &:hover {
+                color: var(--mc-link-hover-color);
+                text-decoration: underline;
+            }
+        }
+
+        &.text__code {
+            color: var(--mc-text-code-color);
+            background-color: var(--mc-text-code-background-color);
+            padding: .1rem .3rem;
+            border-radius: .2rem;
+        }
+    }
+
+    & .heading {
+        font-weight: bold;
+        margin-bottom: 1rem;
+
+        &.heading__1 {
+            font-size: 2.5rem;
+            line-height: 3rem;
+            border-bottom: 6px solid var(--mc-heading-border-color);
+        }
+
+        &.heading__2 {
+            font-size: 2rem;
+            line-height: 2.8rem;
+            border-bottom: 5px solid var(--mc-heading-border-color);
+        }
+
+        &.heading__3 {
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+            border-bottom: 4px solid var(--mc-heading-border-color);
+        }
+
+        &.heading__4 {
+            font-size: 1.6rem;
+            line-height: 2rem;
+            border-bottom: 3px solid var(--mc-heading-border-color);
+        }
+
+        &.heading__5 {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            border-bottom: 2px solid var(--mc-heading-border-color);
+        }
+
+        &.heading__6 {
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+            border-bottom: 1px solid var(--mc-heading-border-color);
+        }
+    }
+
+    & .list {
+        &.list__ordered {
+            padding-left: 2rem;
+        }
+
+        &.list__unordered {
+            padding-left: 2rem;
+        }
+
+        & .list-item {
+            margin: .5rem 0;
+
+            &.list-item__ordered {
+                padding-left: 1rem;
+            }
+
+            &.list-item__unordered {
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    & .code-block-container {
+        position: relative;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: var(--mc-code-block-background-color);
+        border-radius: .5rem;
+
+        & .code-block {
+            font-size: 1rem;
+            color: var(--mc-code-block-color);
+            white-space: pre-wrap;
+            margin: 0;
+
+            & .code-block-inner {
+                padding: 0;
+                margin: 0;
+            }
+
+            &__copy-button {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                color: var(--mc-code-block-copy-button-color);
+                background-color: var(--mc-code-block-copy-button-background-color);
+                border: 1px solid var(--mc-code-block-copy-button-background-color);
+                border-radius: .5rem;
+                cursor: pointer;
+
+                opacity: 0;
+                transition: opacity .3s;
+
+                &.hover {
+                    opacity: 1;
+                    transition: opacity .3s;
+                }
+
+                &.success {
+                    background-color: var(--mc-code-block-copy-button-success-color);
+                    border-color: var(--mc-code-block-copy-button-success-color);
+                }
+
+                &.error {
+                    background-color: var(--mc-code-block-copy-button-error-color);
+                    border-color: var(--mc-code-block-copy-button-error-color);
+                }
+            }
+        }
+    }
+
+    & .horizontal-rule {
+        margin: 1rem 0;
+        border: none;
+        border-top: 3px solid var(--mc-hr-color);
+    }
+
+    & .new-line {
+        margin: 1rem 0;
+    }
+}

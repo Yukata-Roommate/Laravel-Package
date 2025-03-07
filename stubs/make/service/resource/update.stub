@@ -1,0 +1,92 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Service\Resource\UpdateService as BaseService;
+
+use {{ RequestEntityClassName }} as Entity;
+
+use App\Facades\Repository;
+
+/**
+ * {{ Comment }}
+ *
+ * @method static \Illuminate\Http\RedirectResponse handle(\{{ RequestEntityClassName }} $entity)
+ */
+class {{ TargetUpper }}Service extends BaseService
+{
+    /**
+     * name
+     *
+     * @var string
+     */
+    protected string $name = "{{ Name }}";
+
+    /**
+     * entity instance
+     *
+     * @var \{{ RequestEntityClassName }}
+     */
+    protected Entity $entity;
+
+    /**
+     * construct
+     *
+     * @param \{{ RequestEntityClassName }} $entity
+     * @return void
+     */
+    public function __construct(Entity $entity)
+    {
+        $this->entity = $entity;
+    }
+
+    /**
+     * update
+     *
+     * @return bool
+     */
+    protected function update(): bool
+    {
+        ${{ VariableName }} = Repository::{{ RepositoryFacadeMethod }}()->findRawById($this->entity->id);
+
+        // ...
+
+        return $this->runTransaction(function () use (${{ VariableName }}) {
+            ${{ VariableName }}->save();
+        });
+    }
+
+    /**
+     * update success response params
+     *
+     * @return array<string, mixed>
+     */
+    protected function successParams(): array
+    {
+        return [
+            "id" => $this->entity->id
+        ];
+    }
+
+    /**
+     * update failure response params
+     *
+     * @return array<string, mixed>
+     */
+    protected function failureParams(): array
+    {
+        return [
+            "id" => $this->entity->id
+        ];
+    }
+
+    /**
+     * update failure response input
+     *
+     * @return array<string, mixed>
+     */
+    protected function failureInput(): array
+    {
+        return $this->entity->data();
+    }
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace {{ NameSpace }};
+
+use YukataRm\Laravel\Request\Entity\Resource\DestroyEntity as BaseEntity;
+
+/**
+ * {{ Comment }}
+ */
+class {{ TargetUpper }}Entity extends BaseEntity {}
