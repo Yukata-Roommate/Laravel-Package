@@ -5,7 +5,7 @@ namespace YukataRm\Laravel\Http\Middleware;
 use YukataRm\Laravel\Middleware\BaseMiddleware;
 use Symfony\Component\HttpFoundation\Response;
 
-use YukataRm\Interface\Time\TimerInterface;
+use YukataRm\Time\Interfaces\TimerInterface;
 use YukataRm\Time\Proxies\Time;
 
 use YukataRm\Entity\Proxies\Entity;
@@ -139,7 +139,7 @@ abstract class LoggingHttp extends BaseMiddleware
     /**
      * Timer instance
      *
-     * @var \YukataRm\Interface\Time\TimerInterface
+     * @var \YukataRm\Time\Interfaces\TimerInterface
      */
     protected TimerInterface $timer;
 

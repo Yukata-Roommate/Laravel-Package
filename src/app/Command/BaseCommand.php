@@ -13,7 +13,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Support\Facades\Validator as ValidatorFacade;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 
-use YukataRm\Interface\Time\TimerInterface;
+use YukataRm\Time\Interfaces\TimerInterface;
 use YukataRm\Time\Proxies\Time;
 
 use YukataRm\Laravel\Facade\Log;
@@ -155,7 +155,7 @@ abstract class BaseCommand extends Command
     /**
      * Timer instance
      *
-     * @var \YukataRm\Interface\Time\TimerInterface
+     * @var \YukataRm\Time\Interfaces\TimerInterface
      */
     protected TimerInterface $timer;
 
