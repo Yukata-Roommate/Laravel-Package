@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\View\Render;
 
 use YukataRm\Laravel\Interface\View\Render\RendererInterface;
 
-use YukataRm\Proxy\File\Writer;
+use YukataRm\File\Proxies\Writer;
 
 use Illuminate\View\View;
 

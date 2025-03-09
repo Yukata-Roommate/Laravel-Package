@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\Package\Command\Base\Resource;
 
 use YukataRm\Laravel\Command\BaseCommand as ParentCommand;
 
-use YukataRm\Proxy\Text;
+use YukataRm\Text\Proxies\Text;
 
 /**
  * Resource Base Command

@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\Package\Command\Make;
 
 use YukataRm\Laravel\Package\Command\Base\Make\BaseCommand;
 
-use YukataRm\Proxy\Text;
+use YukataRm\Text\Proxies\Text;
 
 use Illuminate\Support\Str;
 

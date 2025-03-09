@@ -6,9 +6,9 @@ use YukataRm\Laravel\Middleware\BaseMiddleware;
 use Symfony\Component\HttpFoundation\Response;
 
 use YukataRm\Interface\Time\TimerInterface;
-use YukataRm\Proxy\Time;
+use YukataRm\Time\Proxies\Time;
 
-use YukataRm\Proxy\Entity;
+use YukataRm\Entity\Proxies\Entity;
 
 use YukataRm\Laravel\Interface\Log\LoggerInterface;
 use YukataRm\Laravel\Facade\Log;

@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\View\Component\Pagination\ExtraSmall;
 
 use YukataRm\Laravel\View\Component\CustomComponent;
 
-use YukataRm\Proxy\Text;
+use YukataRm\Text\Proxies\Text;
 
 /**
  * Pagination Extra Small Item Component

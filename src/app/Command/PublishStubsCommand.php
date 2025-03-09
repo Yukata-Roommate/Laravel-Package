@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\Command;
 
 use YukataRm\Laravel\Command\BaseCommand;
 
-use YukataRm\Proxy\File\Operator as OperatorProxy;
+use YukataRm\File\Proxies\Operator as OperatorProxy;
 use YukataRm\File\Operator;
 
 /**

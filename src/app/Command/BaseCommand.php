@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Validator as ValidatorFacade;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 
 use YukataRm\Interface\Time\TimerInterface;
-use YukataRm\Proxy\Time;
+use YukataRm\Time\Proxies\Time;
 
 use YukataRm\Laravel\Facade\Log;
 use YukataRm\Laravel\Log\Logger;

@@ -4,7 +4,7 @@ namespace YukataRm\Laravel\Package\Command\Base\Make;
 
 use YukataRm\Laravel\Command\MakeFileCommand as ParentCommand;
 
-use YukataRm\Proxy\Text;
+use YukataRm\Text\Proxies\Text;
 
 /**
  * Make Base Command

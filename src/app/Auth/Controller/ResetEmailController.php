@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 
 use YukataRm\Laravel\Auth\Model\EmailResetToken;
 use YukataRm\Laravel\Mail\Client;
-use YukataRm\Proxy\Random;
+use YukataRm\Random\Proxies\Random;
 use Carbon\Carbon;
 
 use Illuminate\Foundation\Auth\User;

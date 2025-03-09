@@ -4,9 +4,9 @@ namespace YukataRm\Laravel\Package\Command;
 
 use YukataRm\Laravel\Command\BaseCommand;
 
-use YukataRm\Proxy\Db\Dumper;
-use YukataRm\Interface\Db\Dumper\BaseDumperInterface;
-use YukataRm\Interface\Db\Dumper\MySQLDumperInterface;
+use YukataRm\Db\Proxies\Dumper;
+use YukataRm\Db\Interfaces\Dumper\BaseDumperInterface;
+use YukataRm\Db\Interfaces\Dumper\MySQLDumperInterface;
 
 /**
  * Dump Database Command
