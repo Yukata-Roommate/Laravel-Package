@@ -25,7 +25,6 @@ class FacadeServiceProvider extends ServiceProvider
             Facade\Db::class        => Manager\DbManager::class,
             Facade\Exception::class => Manager\ExceptionManager::class,
             Facade\Http::class      => Manager\HttpManager::class,
-            Facade\Log::class       => Manager\LogManager::class,
             Facade\Renderer::class  => Manager\RendererManager::class,
             Facade\Rules::class     => Manager\RulesManager::class,
         ];

@@ -10,7 +10,7 @@ use YukataRm\Time\Proxies\Time;
 
 use YukataRm\Entity\Proxies\Entity;
 
-use YukataRm\Laravel\Interface\Log\LoggerInterface;
+use YukataRm\Laravel\Log\Interfaces\LoggerInterface;
 use YukataRm\Laravel\Facade\Log;
 use YukataRm\Enum\Log\LogFormatEnum;
 
@@ -481,7 +481,7 @@ abstract class LoggingHttp extends BaseMiddleware
     /**
      * get Logger instance
      *
-     * @return \YukataRm\Laravel\Interface\Log\LoggerInterface
+     * @return \YukataRm\Laravel\Log\Interfaces\LoggerInterface
      */
     protected function logger(): LoggerInterface
     {

@@ -39,7 +39,6 @@
             "aliases": {
                 "Db": "YukataRm\\Laravel\\Facade\\Db",
                 "Http": "YukataRm\\Laravel\\Facade\\Http",
-                "Log": "YukataRm\\Laravel\\Facade\\Log",
                 "Renderer": "YukataRm\\Laravel\\Facade\\Renderer",
                 "Rules": "YukataRm\\Laravel\\Facade\\Rules",
 

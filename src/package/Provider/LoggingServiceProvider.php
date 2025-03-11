@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Events\QueryExecuted;
 
-use YukataRm\Laravel\Interface\Log\LoggerInterface;
+use YukataRm\Laravel\Log\Interfaces\LoggerInterface;
 use YukataRm\Laravel\Facade\Log;
 use YukataRm\Enum\Log\LogFormatEnum;
 use YukataRm\Enum\Log\LogLevelEnum;
@@ -141,7 +141,7 @@ class LoggingServiceProvider extends ServiceProvider
     /**
      * get Logger instance
      *
-     * @return \YukataRm\Laravel\Interface\Log\LoggerInterface
+     * @return \YukataRm\Laravel\Log\Interfaces\LoggerInterface
      */
     protected function logger(): LoggerInterface
     {
