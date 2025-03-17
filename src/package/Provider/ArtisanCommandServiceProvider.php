@@ -23,8 +23,6 @@ class ArtisanCommandServiceProvider extends ServiceProvider
     protected function artisanCommands(): array
     {
         return [
-            PackageCommand\DeleteTokensCommand::class,
-
             PackageCommand\DumpDatabaseCommand::class,
 
             PackageCommand\UpdatePackageCommand::class,

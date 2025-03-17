@@ -13,7 +13,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 use YukataRm\Laravel\Mail\Client;
 
-use YukataRm\Laravel\Facade\Db;
+use YukataRm\Laravel\Db\Facades\Transaction;
 use YukataRm\Laravel\Facade\Exception;
 
 /**
@@ -185,7 +185,7 @@ abstract class BaseService
     protected function runTransaction(\Closure $transactional, bool $onlySystemAlert = false): bool
     {
         try {
-            Db::execute($transactional);
+            Transaction::execute($transactional);
 
             return true;
         } catch (\Throwable $exception) {

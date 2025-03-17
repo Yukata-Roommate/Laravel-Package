@@ -22,7 +22,6 @@ class FacadeServiceProvider extends ServiceProvider
     protected function facades(): array
     {
         return [
-            Facade\Db::class        => Manager\DbManager::class,
             Facade\Exception::class => Manager\ExceptionManager::class,
             Facade\Http::class      => Manager\HttpManager::class,
             Facade\Renderer::class  => Manager\RendererManager::class,
