@@ -43,14 +43,14 @@ abstract class BaseRequest extends FormRequest
     /**
      * Validation Rules array
      *
-     * @var array<\YukataRm\Laravel\Interface\Validation\RulesInterface>
+     * @var array<\YukataRm\Laravel\Validation\Interfaces\Rules\ValidationRulesInterface>
      */
     protected array $validations = [];
 
     /**
      * get Validation Rules array
      *
-     * @return array<\YukataRm\Laravel\Interface\Validation\RulesInterface>
+     * @return array<\YukataRm\Laravel\Validation\Interfaces\Rules\ValidationRulesInterface>
      */
     abstract protected function validations(): array;
 

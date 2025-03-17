@@ -22,7 +22,7 @@ abstract class DestroyRequest extends BaseRequest
     /**
      * get Validation Rules array
      *
-     * @return array<\YukataRm\Laravel\Interface\Validation\RulesInterface>
+     * @return array<\YukataRm\Laravel\Validation\Interfaces\Rules\ValidationRulesInterface>
      */
     protected function validations(): array
     {
