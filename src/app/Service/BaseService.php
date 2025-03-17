@@ -3,7 +3,7 @@
 namespace YukataRm\Laravel\Service;
 
 use Illuminate\Support\Facades\Auth;
-use YukataRm\Laravel\Model\AuthenticatableModel;
+use YukataRm\Laravel\Repository\Model\AuthenticatableModel;
 
 use Illuminate\Http\RedirectResponse;
 
@@ -30,7 +30,7 @@ abstract class BaseService
     /**
      * get logged in user
      *
-     * @return \YukataRm\Laravel\Model\AuthenticatableModel
+     * @return \YukataRm\Laravel\Repository\Model\AuthenticatableModel
      */
     protected function user(): AuthenticatableModel
     {
