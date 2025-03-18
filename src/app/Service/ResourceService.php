@@ -2,14 +2,14 @@
 
 namespace YukataRm\Laravel\Service;
 
-use YukataRm\Laravel\Service\CustomService;
+use YukataRm\Laravel\Service\RedirectService;
 
 /**
  * Resource Service
  *
  * @package YukataRm\Laravel\Service
  */
-abstract class ResourceService extends CustomService
+abstract class ResourceService extends RedirectService
 {
     /*----------------------------------------*
      * Resource
